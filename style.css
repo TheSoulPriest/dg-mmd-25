@@ -43,11 +43,17 @@ ol li { /* all ordered lists will now have these attributes */
 	color: magenta;
 	/* for transparent, use rgba and use the a channel to set the opacity e.g. color: rgba(0,255,0,0.5)
 	otherwise use "opacity" */
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif"; /* yes it sets the font in order based on what the user has on their pc, check https://www.cssfontstack.com/ for compat */
+	Font: italic small-caps bold 24px/1.5 Helvetica, sans-serif; /* short-hand font writing (recommended to not do this) */
 }
 
 h1, h2, h6 { /* you can probably guess what this affects based on what you've read above */
 	color: darkred;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif" /* yeah it sets the font in order based on what the user has on their pc, check https://www.cssfontstack.com/ for compat */
+	font-family: "komu-new-c", sans-serif;
+	font-weight: 500; /* value from 100 to 900 generally, this one only goes from 500 to 600. */
+	font-style: normal; /* whatever is available, bold, italic, oblique, etc. oblique is italic but words more tilted */
+	/* this font was copy-pasted from https://fonts.adobe.com/fonts/komu-new "add to web project", after adding it in the HTML header. you can also use google fonts */
+	font-size: null; /* 2em is h1, etc. can use 100%, 16px, so on. this controls 3 headers so im setting it to null */
 }
 
 h2.border { /* only h2 elements which have the "border" class will have this border effect applied to it */
@@ -70,4 +76,35 @@ img { /* moves any image 10px from the top and 25px from the left (the cat) */
 	top: 10px;
 	left: 25px;
 	z-index: 1; /* this is the layer the image would be at, should it go above anything else with "absolute" */
+	float: right; /* this moves the element to the right and allows the unused space to be taken up by text (think of an image using a whole block then followed by text at the bottom right, versus what you see now) */
+}
+
+a {
+	text-decoration: none; /* this removes the underline from links. you can use underline, overline, line-through, etc. */
+	float: right; /* moves element to the right as far it can. the image comes first in the HTML document, so it is moved furthest to the right first */
+}
+
+div {
+	background-color: white;
+	width: 200px;
+	height: 100px;
+	overflow: auto; /* adds scroll bar */
+}
+
+section { /* here we are using the section in HTML to make an animation in css */
+	width: 300px;
+	height: 300px;
+	background-color: red;
+	animation-name: test;
+	animation-duration: 4s;
+	animation-iteration-count: infinite; /* if we didnt have this it would only do the animation when loading the page (so if the element is really far below you wont see it) */
+	animation-delay: 10s; /* you can set the delay before it starts when loading the page for the first time if thats useful somehow */
+	animation-timing-function: ease-in-out; /* it is not super visible, but in the animation, the fade out is faster because of this "ease-in-out" setting. default is "linear". */
+	animation-direction: alternate; /* in the keyframes below, this will go from 0% to 100% then 100% to 0%, and repeat. default is "normal". */
+}
+
+@keyframes test { /* this is how we control the animation. the values are based on the time we have given in animation-duration (so it will perform this animation over 4s) */
+	0% {background-color: red; width: 300px;}
+	50% {background-color: blue; width: 600px;}
+	100% {background-color: red; width: 300px;}
 }
