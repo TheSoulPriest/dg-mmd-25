@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+.red {
+	width: 500px;
+	height: 50px;
+	background-color: red;
+}
+
+.green {
+	width: 50%; /* 50% of the screen's size -- so, adjusting the screen size will adjust this width too (in browser) */
+	height: 50px;
+	background-color: green;
+}
+
+.blue {
+	max-width: 1000px; /* will adjust to the screen size up until this point (so no scroll bar in browser, but the element will adjust itself up until 1000 px) */
+	height: 50px;
+	background-color: blue;
+}
+
+.yellow {
+	min-width: 800px; /* will force a scroll bar to appear if the screen is adjusted below the element's size (in browser) */
+	height: 50px;
+	background-color: yellow;
+}
+
+/* in general, its best to use percentage (%) for the kind of work seen above */
+
+.flexbox{
+	background-color: gray;
+	display: flex; /* when adjusting the screen, the elements will behave according to the screen size (so adjusting it below the whatever max pixels for this row of numbers will make them adjust to be smaller in relation to the screen size) */
+	flex-flow: wrap; /* this causes it to no longer scale (as written above), and instead wrap onto the next line */
+}
+
+p {
+	background-color: white;
+	margin: 10px;
+	/* width: 150px; */
+	text-align: center; 
+	flex: 1 1 250px; /* the 1 and 1 here is true/false for "flow-grow" & "flex-shrink" which can be seen as the numbers 5 and 6 are adjusing to grow or shrink as much it can. can conflict with "flex-wrap" */
+}
+
+.flexitem {
+	flex: 1 1 500px; /* "flex-flow: wrap" is letting this happen */
+}
+
+@media screen and (max-width : 500px ){ /* will only happen if this is true - when the max width is 500px */
+	.red {
+		background-color: black;
+	}
+	.green {
+		width: 100%; /* fits to the screen */
+	}
+	.flexbox {
+		flex-direction: column; /* set the row to be a column instead (vertical) */
+	}
+}
