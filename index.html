@@ -1,14 +1,17 @@
 <!doctype html> <!-- fortæller browseren typet af dokument -->
+<!-- file must be called index -->
 <html> <!-- hvor dokumentet starter og slutter -->
 <head> <!-- definer ting der ikke kan ses direkte -->
+<link href="style.css" rel="stylesheet"> <!-- links the stylesheet to the html page -->
 <meta charset="utf-8"> <!-- standard, inkluderer æøå -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- gør bredden til bredden af skærmen og loader i en initial scale af 1 (altså ikke zoomet ind eller ud) -->
 <title>html test</title> <!-- ændr dette for at ændre det, der vises i websites tab -->
 </head>
 
 <body> <!-- det, vi kan se på hjemmesiden -->
 	<h1>this be me website, arr</h1>
-	<h2>hee haw</h2>
-	<h6>a</h6>
+	<h2 class="border">hee haw</h2> <!-- vi har defineret denne header's klasse som "border" for at linke den til css filen som giver elementer med denne klasse en border (intuitivt navngivet border) -->
+	<h6 id="test">a</h6>
 	
 	<p>long text goes <b>here</b>, <i>here</i> <!-- inline element --> goes text long</p> <!-- block element -->
 	<p class="extra">more funny words <sub>hello</sub> and <u>heio</u> and <sup>hejo</sup> and <strong>heyo</strong> and <em>hedo</em> ok <br> that it</p> <!-- this paragraph has been given a class we can link to, look for #extra. when you click this link you will go to this paragraph on the webpage -->
@@ -114,12 +117,13 @@
 	<br>
 	and continued
 	<br>
+	
 	<img src="images/cat.jpg" alt="funy cat"/> <!-- kan tilføje begge eller kun en af width="768" height="432" før alt eller efter src men ikke nødvendigt -->
 	
 	<br>
 	whoa more things:
 	<br>
-	<a href="https://www.w3schools.com/html/html_links.asp">link in this tab</a>
+	<a href="https://www.w3schools.com/html/html_links.asp">link in this tab</a> <!-- <a> is a link -->
 	<br>
 	<a href="https://www.w3schools.com/html/html_links.asp" target="_blank">link in new tab</a>
 	<br>
@@ -128,5 +132,27 @@
 	<a href="tel:12345678">phone link</a>
 	<br>
 	<a href="#extra">link to the extra text at the start</a>
+	
+	<br>
+	
+	<iframe src="https://www.youtube.com/embed/k1BneeJTDcU?si=i0WgNgbqPnVjbOZl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	
+	<br>
+	test?
+	<br>
+	
+	<a href="https://www.w3schools.com/html/html_form_input_types.asp">html inputs (used below)</a>
+	
+	<form>
+		<label>First name: </label><input type="text" value="write your name here">
+		<br>
+		<input type="radio"> <label>Multimediadesign</label>
+		<input type="radio"> <label>Datamatiker</label>
+		<br>
+		<input type="checkbox"> <label>I am not a robot</label>
+		<br>
+		<input type="button" value="Click to destroy the world"> <label>wait how did this get here</label>
+	</form>
+	
 </body>
 </html>

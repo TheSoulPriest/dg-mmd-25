@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* default name. if you had a seperate style sheet to a menu, you would call the file menu.css instead */
+
+/* this file uses selectors to pick elements to do stuff to them. the priority of which elements are picked is the following:
+
+1 type + id
+  - type <a> with id #name e.g. a#id
+2 id
+  - eg. #id
+3 type + class
+  - eg. h2.border
+4 class
+  - eg. .border
+5 flere typer
+  - eg. "div h1" ændrer alle h1'er i div, mens "div, h1" ændrer alle div'er og h1'er
+6 typer
+  - eg. "h1, h2" ændrer alle h1'er og h2'er
+7 universal
+  - eksempel nedenfor med stjernen
+*/
+
+h6#test { /* this is the type + id example from above. this type has an id of test and will have the effects applied to it */
+	color:aqua
+}
+
+body {
+	background-color: #FFEB9D /* Sandy yellow / Ancient Parchment yellow */
+}
+
+/* the star * selects everything, all elements will have this applied to it
+* {
+	border: 1px solid #0D0000
+} 
+*/
+
+.border { /* this css class has been intuitively named "border". elements named border will have this border effect. */
+	border: 3px solid black; /* this is a propery, the most common are background, border, color, font, text-align, display, height, width, margin, padding, overflow, position. see more w3schools.com/cssref/ */
+	/* the values you use can be of px, cm, mm, pt (px recommended). relative values: em, %, vw, vh (according to screen size). if a value is 0 for something you dont need a value unit. examples: "height: 10 em;" "width 80%", "front-weight; 400" */
+	
+}
+
+ol li { /* all ordered lists will now have these attributes */
+	color: magenta;
+	/* for transparent, use rgba and use the a channel to set the opacity e.g. color: rgba(0,255,0,0.5)
+	otherwise use "opacity" */
+}
+
+h1, h2, h6 { /* you can probably guess what this affects based on what you've read above */
+	color: darkred;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif" /* yeah it sets the font in order based on what the user has on their pc, check https://www.cssfontstack.com/ for compat */
+}
+
+h2.border { /* only h2 elements which have the "border" class will have this border effect applied to it */
+	background-color: white; 
+	display: inline-block; /* "display: inline" cant be modified, but "display: inline-block". can also use "display: block;"" -- it would go onto a new line, but  display: inline-block; would be modifiable with a "width 500px" on the same line 
+	eg.
+	would be modifiable*/
+	border-style: dashed; /* border style */
+	width: 300px;
+	padding: 12px 5px;
+	margin: 30px 0px 10px 0px; /* margin-top, margin-right, margin-bottom, margin-left, or shorthand written consecutively. the same applies to "padding" (padding-top, padding-right, etc.) */
+}
+
+h2:hover { /* this is called a pseudo-class (has the : in it) -- all h2 elements will show as blue when hovered */
+	color:blue
+}
+
+img { /* moves any image 10px from the top and 25px from the left (the cat) */
+	position: relative; /* relative to the position it is already at. use "absolute" to do it in relation to the website screen, e.g. at the top left of the page, above anything that is at that position already like text. use "fixed" to have it be fixed at that position regardless of scrolling (the image moves with you). use "sticky" to have the "fixed" effect once you have scrolled down to the image (it will stick upon further scrolling. you can't make it stop in this code) */
+	top: 10px;
+	left: 25px;
+	z-index: 1; /* this is the layer the image would be at, should it go above anything else with "absolute" */
+}
