@@ -33,7 +33,7 @@
 	flex-flow: wrap; /* this causes it to no longer scale (as written above), and instead wrap onto the next line */
 }
 
-p {
+.flexbox p {
 	background-color: white;
 	margin: 10px;
 	/* width: 150px; */
@@ -41,8 +41,29 @@ p {
 	flex: 1 1 250px; /* the 1 and 1 here is true/false for "flow-grow" & "flex-shrink" which can be seen as the numbers 5 and 6 are adjusing to grow or shrink as much it can. can conflict with "flex-wrap" */
 }
 
-.flexitem {
+#flexitem {
 	flex: 1 1 500px; /* "flex-flow: wrap" is letting this happen */
+}
+
+.grid {
+	background-color: aqua;
+	display: grid; /* inline-grid only takes up the space the elements occupy, while grid takes all of it. */
+	grid-template-columns: 300px 300px 150px; /* width. can also use 1fr or 2fr for fractions of the screen */
+	grid-template-rows: 200px 200px; /* height */
+	gap: 10px 30px /* space between elements, down then right */
+}
+
+.grid p {
+	background-color: white; /* white boxes, makes the "display: inline-grid" visible */
+	margin: 5px; /* space between the white boxes. can use this instead of gap, perhaps more intuitive + more control */
+	text-align: center;
+}
+
+#griditem {
+	/* grid-column: 1/ span 2; /* can also write "1/3" but is perhaps more confusing even if it means the same */
+	/* grid-row: 1/ span 2;
+	/* */
+	grid-area: 1/1/3/3; /* shorthand way, perhaps also confusing, but means the same as the above. start row, start column, end row, end column */
 }
 
 @media screen and (max-width : 500px ){ /* will only happen if this is true - when the max width is 500px */
